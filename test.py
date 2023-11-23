@@ -18,7 +18,9 @@ def test_valid_url(client):
 
 
 def test_get_photo_class_invalid_url(client):
-    url = "invalid_url"
-    response = client.get(f"/get-photo-class?url={url}")
+    response = client.get(f"/get-photo-class",
+                          params={
+                              'url': 'invalid_url',
+                          })
     assert response.status_code == 422
     assert "Invalid URL" in response.text
