@@ -21,4 +21,4 @@ def test_get_photo_class_invalid_url(client):
     url = "invalid_url"
     response = client.get(f"/get-photo-class?url={url}")
     assert response.status_code == 422
-    assert "mem" in response.text
+    assert "Invalid URL" in response.text
